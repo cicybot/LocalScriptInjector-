@@ -1,0 +1,5 @@
+{
+  "name": "Local Script Injector",
+  "description": "A developer tool to inject local JavaScript into any webpage with Hot Reload support.",
+  "requestFramePermissions": []
+}

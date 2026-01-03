@@ -1,11 +1,31 @@
-<div align="center">
+# Local Script Injector (Chrome Extension)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+这是一个高效的 Chrome 开发辅助插件，允许开发者将本地的 JavaScript 文件实时注入到任何网页中。它支持页面加载时自动注入以及通过快捷键进行“热重载”。
 
-  <h1>Built with AI Studio</h2>
+## 🚨 关键更新 (CORS Fix)
+为了解决 CORS 跨域限制，本插件现在通过 Background Service Worker 代理请求。
+默认端口已更新为 **8282** (根据你的错误日志)。
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+请确保你的本地服务器地址为：
+`http://127.0.0.1:8282/inject.js`
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## ✨ 功能
+*   **自动注入**: 打开网页时自动从本地服务器获取 JS 并执行。
+*   **热重载**: 按下 `Cmd+I` (Mac) 或 `Ctrl+I` (Win) 立即重新加载本地代码。
+*   **CORS 穿透**: 即使本地服务器没有配置 CORS 头，插件也能正常工作。
 
-</div>
+## 📖 使用方法
+
+### 1. 启动本地服务器
+确保 `inject.js` 可通过 `http://127.0.0.1:8282/inject.js` 访问。
+(项目中包含了一个简单的 `server.js` 供测试使用)。
+
+### 2. 加载插件
+1.  打开 Chrome 浏览器。
+2.  进入 `chrome://extensions/`。
+3.  开启右上角的 **开发者模式**。
+4.  点击 **加载已解压的扩展程序**，选择本项目的根目录。
+
+### 3. 开发
+1.  修改本地的 `inject.js` 文件。
+2.  在目标网页按下快捷键 (`Cmd+I` / `Ctrl+I`)，观察控制台输出。

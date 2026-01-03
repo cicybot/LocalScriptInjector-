@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Local Script Injector",
+  "version": "1.0.0",
+  "description": "Inject local JavaScript into any webpage with Hot Reload support.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8282/*",
+    "http://localhost:8282/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Local Script Injector"
+  }
+}
